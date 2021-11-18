@@ -1,28 +1,80 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SimpleBezierCurveApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private List<Point> points = new List<Point>();
+
+        private void DrawPoint(Point point)
+        {
+            var elipse = new Ellipse();
+
+            elipse.Width = 4;
+            elipse.Height = 4;
+
+            elipse.StrokeThickness = 4;
+            elipse.Stroke = Brushes.Red;
+            elipse.Margin = new Thickness(point.X - 2, point.Y - 2, 0, 0);
+
+            canvas.Children.Add(elipse);
+        }
+
+        private void DrawLine(Point point1, Point point2)
+        {
+            var line = new Line();
+
+            line.X1 = point1.X;
+            line.Y1 = point1.Y;
+
+            line.X2 = point2.X;
+            line.Y2 = point2.Y;
+
+            line.Stroke = Brushes.Blue;
+
+            canvas.Children.Add(line);
+        }
+
+        private void Update()
+        {
+            canvas.Children.Clear();
+            var curve = Bezier.GetCurvePoints(points.ToArray());
+            for (int i = 0; i < curve.Length - 1; i++)
+            {
+                DrawLine(curve[i], curve[i + 1]);
+            }
+
+            foreach (var p in points)
+            {
+                DrawPoint(p);
+            }
+        }
+
+        private void canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var p = e.GetPosition(canvas);
+            var x = p.X;
+            var y = p.Y;
+            var point = new Point(x, y);
+
+            points.Add(point);
+            Update();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            canvas.Children.Clear();
+            points.Clear();
         }
     }
 }
