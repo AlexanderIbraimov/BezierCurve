@@ -5,15 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleBezierCurveApp"
         mc:Ignorable="d"
-        Title="Bezier curve app" Height="500" Width="400">
+        Title="Bezier curve app" Height="768" Width="1024" MinHeight="768" MinWidth="1024" MaxHeight="768" MaxWidth="1024" Background="#050505">
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="400*"></RowDefinition>
-            <RowDefinition Height="100*"></RowDefinition>
+            <RowDefinition Height="600*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Canvas Grid.Row="0" Height="400" Width="400" Background="Black" Name="canvas" MouseLeftButtonDown="canvas_MouseLeftButtonDown" >
+        <Canvas Grid.Row="0" Background="#2A3347" Name="canvas" MouseLeftButtonDown="canvas_MouseLeftButtonDown" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
         </Canvas>
-        <Button Grid.Row="1" Content="Clear" FontSize="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="Button_Click" ></Button>
+        <Button Grid.Row="1" Content="Clear" BorderThickness="2" FontSize="20" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="Button_Click" ></Button>
+        <Button Grid.Row="1" Content="Cancel" BorderThickness="2" FontSize="20" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="Button_Click_1" ></Button>
+
     </Grid>
 </Window>

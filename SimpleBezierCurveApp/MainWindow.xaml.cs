@@ -20,8 +20,8 @@ namespace SimpleBezierCurveApp
         {
             var elipse = new Ellipse();
 
-            elipse.Width = 4;
-            elipse.Height = 4;
+            elipse.Width = 10;
+            elipse.Height = 10;
 
             elipse.StrokeThickness = 4;
             elipse.Stroke = Brushes.Red;
@@ -40,8 +40,8 @@ namespace SimpleBezierCurveApp
             line.X2 = point2.X;
             line.Y2 = point2.Y;
 
-            line.Stroke = Brushes.Blue;
-
+            line.Stroke = Brushes.Green;
+           
             canvas.Children.Add(line);
         }
 
@@ -75,6 +75,16 @@ namespace SimpleBezierCurveApp
         {
             canvas.Children.Clear();
             points.Clear();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            canvas.Children.Clear();
+            if (points.Count > 0 )
+            {
+                points.RemoveAt(points.Count - 1);
+                Update();
+            }
         }
     }
 }
