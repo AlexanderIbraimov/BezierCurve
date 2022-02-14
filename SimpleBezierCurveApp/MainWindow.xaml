@@ -14,8 +14,14 @@
         <Canvas Grid.Row="0" Background="#2A3347" Name="canvas" MouseLeftButtonDown="canvas_MouseLeftButtonDown" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
         </Canvas>
-        <Button Grid.Row="1" Content="Clear" BorderThickness="2" FontSize="20" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="Button_Click" ></Button>
-        <Button Grid.Row="1" Content="Cancel" BorderThickness="2" FontSize="20" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="Button_Click_1" ></Button>
-
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Clear" BorderThickness="2" FontSize="20" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Left" Click="ClearButtonClick" ></Button>
+            <Button Grid.Column="1" Content="Cancel" BorderThickness="2" FontSize="20" Width="90" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Center" Click="CancelButtonClick" ></Button>
+        </Grid>
     </Grid>
 </Window>

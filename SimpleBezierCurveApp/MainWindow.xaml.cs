@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -71,13 +72,13 @@ namespace SimpleBezierCurveApp
             Update();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ClearButtonClick(object sender, RoutedEventArgs e)
         {
             canvas.Children.Clear();
             points.Clear();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void CancelButtonClick(object sender, RoutedEventArgs e)
         {
             canvas.Children.Clear();
             if (points.Count > 0 )
